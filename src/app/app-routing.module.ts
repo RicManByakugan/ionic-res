@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 'tabimpl',
     loadChildren: () => import('./tabimpl/tabimpl.module').then( m => m.TabimplPageModule)
   },
+  {
+    path: 'tailwind',
+    loadChildren: () => import('./tailwind/tailwind.module').then( m => m.TailwindPageModule)
+  },
 ];
 
 @NgModule({

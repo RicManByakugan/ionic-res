@@ -33,6 +33,7 @@
             ],
             "styles": [
               "src/global.scss",
+              "src/assets/css/tailwind.css",
               "src/theme/variables.scss"
             ],
             "scripts": []

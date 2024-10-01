@@ -1,0 +1,136 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>tailwind</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <div class="flex items-center mt-4 ml-2 mr-2 mb-4">
+    <ion-title class="text-dark font-bold">Hotelier</ion-title>
+    <div class="flex items-center space-x-4 mr-4">
+      <ion-icon name="search" class="text-dark text-2xl cursor-pointer" (click)="toggleSearch()"></ion-icon>
+      <!-- <img id="auto-trigger" [src]="flag" alt="Français"
+        class="w-6 h-6 rounded-full border-2 border-gray-300 cursor-pointer mr-4 transition-transform transform hover:scale-105">
+      <ion-popover trigger="auto-trigger" size="auto">
+        <ng-template>
+          <ion-content class="ion-padding">
+            <ion-item class="flex items-center" (click)="changeLanguage('fr')">
+              <img
+                class="w-6 h-6 rounded-full border-2 border-gray-300 cursor-pointer mr-4 transition-transform transform hover:scale-105"
+                alt="Français" src="assets/img/fr-flag.gif" />
+              <h3>FR</h3>
+            </ion-item>
+            <ion-item class="flex items-center" (click)="changeLanguage('en')">
+              <img
+                class="w-6 h-6 rounded-full border-2 border-gray-300 cursor-pointer mr-4 transition-transform transform hover:scale-105"
+                alt="English" src="assets/img/us-flag.gif" />
+              <h3>EN</h3>
+            </ion-item>
+          </ion-content>
+        </ng-template>
+      </ion-popover> -->
+      <div class="flex items-center">
+        <img [src]="flag" alt="Language Flag"
+          class="w-6 h-6 rounded-full border-2 border-gray-300 cursor-pointer mr-2 transition-transform transform hover:scale-105">
+        <ion-select placeholder="Language" value="fr" interface="popover" (ionChange)="changeLanguage($event)">
+          <ion-select-option value="fr">
+            <ion-item class="flex items-center">
+              <h3>FR</h3>
+            </ion-item>
+          </ion-select-option>
+
+          <ion-select-option value="en">
+            <ion-item class="flex items-center">
+              <h3>EN</h3>
+            </ion-item>
+          </ion-select-option>
+        </ion-select>
+      </div>
+
+    </div>
+  </div>
+  <hr>
+  <div *ngIf="searchVisible" class="flex justify-center mt-4 ml-2 mr-2 mb-4">
+    <div class="relative w-full max-w-md">
+      <input type="text" placeholder="Rechercher..."
+        class="w-full h-12 pl-10 pr-4 text-sm text-gray-700 border rounded-full shadow focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+      <div class="absolute left-0 top-0 flex items-center h-full pl-3">
+        <ion-icon name="search" class="text-gray-400"></ion-icon>
+      </div>
+    </div>
+  </div>
+
+  <div id="carousel" class="flex overflow-x-scroll scroll-smooth snap-x snap-mandatory space-x-4 p-4">
+    <div *ngFor="let slide of slides" class="flex-shrink-0 w-1/2 snap-center relative">
+      <div class="bg-gray-50 rounded-lg overflow-hidden shadow-lg">
+        <img [src]="slide.image" [alt]="slide.alt" class="w-full h-48 object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4">
+          <h2 class="text-white text-sm font-bold truncate">{{ slide.title }}</h2>
+          <p class="text-white text-lg font-semibold">{{ slide.price | currency }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <div class="relative">
+    <div id="carousel" class="flex overflow-x-scroll scroll-smooth snap-x snap-mandatory">
+      <div class="min-w-full flex-shrink-0 snap-center">
+        <img src="assets/img/room-1.jpg" alt="Room" class="w-full h-64 object-cover">
+      </div>
+      <div class="min-w-full flex-shrink-0 snap-center">
+        <img src="assets/img/room-2.jpg" alt="Food" class="w-full h-64 object-cover">
+      </div>
+      <div class="min-w-full flex-shrink-0 snap-center">
+        <img src="assets/img/room-1.jpg" alt="Spa" class="w-full h-64 object-cover">
+      </div>
+    </div>
+
+    <button id="prev"
+      class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 bg-opacity-50 text-white p-2 rounded-full">
+      &larr;
+    </button>
+    <button id="next"
+      class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 bg-opacity-50 text-white p-2 rounded-full">
+      &rarr;
+    </button>
+  </div> -->
+
+  <!-- <div
+    class="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+    <div class="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
+      aria-hidden="true">
+      <div class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-30"
+        style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)">
+      </div>
+    </div>
+    <div class="absolute left-[max(45rem,calc(50%+8rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
+      aria-hidden="true">
+      <div class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-30"
+        style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)">
+      </div>
+    </div>
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+      <p class="text-sm leading-6 text-gray-900">
+        <strong class="font-semibold">GeneriCon 2023</strong><svg viewBox="0 0 2 2"
+          class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
+          <circle cx="1" cy="1" r="1" />
+        </svg>Join us in Denver from June 7 – 9 to see what’s coming next.
+      </p>
+      <a href="#"
+        class="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900">Register
+        now <span aria-hidden="true">&rarr;</span></a>
+    </div>
+    <div class="flex flex-1 justify-end">
+      <button type="button" class="-m-3 p-3 focus-visible:outline-offset-[-4px]">
+        <span class="sr-only">Dismiss</span>
+        <svg class="h-5 w-5 text-gray-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path
+            d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+        </svg>
+      </button>
+    </div>
+  </div> -->
+
+
+</ion-content>

@@ -57,6 +57,20 @@
 
   <ion-button (click)="loaded = !loaded">Toggle</ion-button>
 
-  <ion-toast icon="globe" trigger="footerAnchor" positionAnchor="footer" position="bottom" [isOpen]="true" message="This toast will close in 5 seconds" [duration]="5000"></ion-toast>
+  <ion-toast icon="globe" trigger="footerAnchor" positionAnchor="footer" position="bottom" [isOpen]="true"
+    message="This toast will close in 5 seconds" [duration]="5000"></ion-toast>
 
+  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    Button
+  </button>
+
+
+  <div class="p-4">
+    <h2 class="text-2xl font-semibold">Welcome to the Room page</h2>
+    <p class="mt-2 text-gray-600">Here is the description of the rooms we offer.</p>
+  </div>
+
+  <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded">
+    Book Now
+  </button>
 </ion-content>
