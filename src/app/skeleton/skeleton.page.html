@@ -1,11 +1,24 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <!-- <ion-toolbar>
     <ion-title>skeleton</ion-title>
+  </ion-toolbar> -->
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button>
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Icon Buttons</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
+
   <ion-list *ngIf="loaded">
     <ion-list-header>Albums</ion-list-header>
     <ion-item>
@@ -19,7 +32,7 @@
       </ion-label>
     </ion-item>
   </ion-list>
-  
+
   <ion-list *ngIf="!loaded">
     <ion-list-header>
       <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
@@ -41,8 +54,9 @@
       </ion-label>
     </ion-item>
   </ion-list>
-  
+
   <ion-button (click)="loaded = !loaded">Toggle</ion-button>
 
+  <ion-toast icon="globe" trigger="footerAnchor" positionAnchor="footer" position="bottom" [isOpen]="true" message="This toast will close in 5 seconds" [duration]="5000"></ion-toast>
 
 </ion-content>
