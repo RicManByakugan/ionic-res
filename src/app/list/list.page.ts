@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
-import { ListPage } from '../list/list.page';
-import { RoutingPage } from '../routing/routing.page';
+import { NavIntPage } from '../nav-int/nav-int.page';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-list',
+  templateUrl: './list.page.html',
+  styleUrls: ['./list.page.scss'],
 })
-export class HomePage implements OnInit {
+export class ListPage implements OnInit {
 
   items: any[] = [];
   isModalOpen = false;
   dataModal = "";
-  componentList = RoutingPage
+  component = NavIntPage
 
   setOpen(isOpen: boolean, itemModal: any) {
     this.isModalOpen = isOpen;
