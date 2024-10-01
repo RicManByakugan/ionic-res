@@ -1,0 +1,7 @@
+{
+  "name": "apptrain",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
