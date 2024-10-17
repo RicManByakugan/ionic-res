@@ -1,0 +1,23 @@
+npm install -g @ionic/cli
+
+ionic serve
+
+ionic generate page paneName
+
+ionic capacitor build android --prod
+
+ionic generate service service-name
+
+ionic capacitor build --prod
+
+
+
+************************************************************
+npm install tailwindcss postcss autoprefixer
+npx tailwindcss init
+************************************************************
+src/global.scss
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+************************************************************
