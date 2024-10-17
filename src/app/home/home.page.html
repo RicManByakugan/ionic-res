@@ -1,13 +1,13 @@
-<ion-header [translucent]="true" class="bg-blue-600 text-white">
+<!-- <ion-header [translucent]="true" class="bg-blue-600 text-white">
   <ion-toolbar>
     <ion-title class="text-left">
       Title
     </ion-title>
-    <!-- <ion-buttons slot="start">
+    <ion-buttons slot="start">
       <ion-button>
         <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
       </ion-button>
-    </ion-buttons> -->
+    </ion-buttons>
     <ion-buttons slot="end">
       <ion-button>
         <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
@@ -17,10 +17,85 @@
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
+</ion-header> -->
+
+<ion-header class="bg-blue-600 text-white fixed top-0 w-full z-50">
+  <ion-toolbar>
+    <ion-title class="text-center">Hotel XYZ</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-badge color="warning" class="mr-2">Offers</ion-badge>
+        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
-
 <ion-content [fullscreen]="true">
+  <!-- Header -->
+  <ion-header class="bg-blue-600 text-white fixed top-0 w-full z-50">
+    <ion-toolbar>
+      <ion-title class="text-center">Hotel XYZ</ion-title>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-badge color="warning" class="mr-2">Offers</ion-badge>
+          <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Spacer for fixed header -->
+  <div class="mt-16"></div>
+
+  <!-- Carousel (like Instagram Stories) -->
+  <div id="carousel" class="flex overflow-x-scroll scroll-smooth snap-x snap-mandatory space-x-4 p-4">
+    <div *ngFor="let slide of slides" class="flex-shrink-0 w-1/2 snap-center relative">
+      <div class="bg-gray-50 rounded-lg overflow-hidden shadow-lg">
+        <img [src]="slide.image" [alt]="slide.alt" class="w-full h-48 object-cover">
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4">
+          <h2 class="text-white text-sm font-bold truncate">{{ slide.title }}</h2>
+          <p class="text-white text-lg font-semibold">{{ slide.price | currency }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-6 rounded-t-3xl shadow-lg mt-4">
+    <h2 class="text-2xl font-bold mb-2">Welcome to Hotel XYZ</h2>
+    <p class="text-gray-600 mb-4">Experience luxury and comfort at Hotel XYZ, located in the heart of the city with top-notch services and stunning amenities.</p>
+    <ion-button expand="block" color="primary" class="mb-4">Book Now</ion-button>
+
+    <div class="grid grid-cols-2 gap-4">
+      <div class="bg-secondary-100 p-4 rounded-lg">
+        <ion-icon name="wifi-outline" class="text-secondary-500 text-2xl"></ion-icon>
+        <h4 class="font-bold mt-2">Free Wi-Fi</h4>
+        <p class="text-sm text-gray-500">Enjoy high-speed internet in every room.</p>
+      </div>
+      <div class="bg-secondary-100 p-4 rounded-lg">
+        <ion-icon name="car-outline" class="text-secondary-500 text-2xl"></ion-icon>
+        <h4 class="font-bold mt-2">Free Parking</h4>
+        <p class="text-sm text-gray-500">Safe and secure parking for all guests.</p>
+      </div>
+      <div class="bg-secondary-100 p-4 rounded-lg">
+        <ion-icon name="restaurant-outline" class="text-secondary-500 text-2xl"></ion-icon>
+        <h4 class="font-bold mt-2">Restaurant</h4>
+        <p class="text-sm text-gray-500">Delicious meals served all day long.</p>
+      </div>
+      <div class="bg-secondary-100 p-4 rounded-lg">
+        <ion-icon name="bed-outline" class="text-secondary-500 text-2xl"></ion-icon>
+        <h4 class="font-bold mt-2">Luxury Rooms</h4>
+        <p class="text-sm text-gray-500">Spacious and well-furnished rooms for your comfort.</p>
+      </div>
+    </div>
+  </div>
+
+
+</ion-content>
+
+
+
+<!-- <ion-content [fullscreen]="true">
   <div class="w-full flex overflow-x-auto p-2 z-50">
     <ion-button>
       <span class="text-xs">Home</span>
@@ -42,16 +117,7 @@
   <ion-nav-link class="top-80" router-direction="forward" [component]="componentList">
     <ion-button>To list page</ion-button>
   </ion-nav-link>
-  <!-- <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div> -->
 
   <ion-card class="m-0">
     <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
@@ -162,4 +228,4 @@
     </ion-row>
   </ion-grid>
 
-</ion-content>
+</ion-content> -->

@@ -13,6 +13,85 @@ export class HomePage implements OnInit {
   items: any[] = [];
   isModalOpen = false;
   dataModal = "";
+  slides = [
+    {
+      title: 'Chambre Luxe Chambre Luxe Chambre Luxe',
+      description: 'Une chambre spacieuse avec vue sur la mer.',
+      price: 4000,
+      image: 'assets/img/room-2.jpg',
+      alt: 'Room'
+    },
+    {
+      title: 'Chambre Luxe Chambre Luxe Chambre Luxe',
+      description: 'Une chambre spacieuse avec vue sur la mer.',
+      price: 4000,
+      image: 'assets/img/room-1.jpg',
+      alt: 'Food'
+    },
+    {
+      title: 'Chambre Luxe',
+      description: 'Une chambre spacieuse avec vue sur la mer.',
+      price: 4000,
+      image: 'assets/img/room-2.jpg',
+      alt: 'Spa'
+    },
+    {
+      title: 'Chambre Luxe',
+      description: 'Une chambre spacieuse avec vue sur la mer.',
+      price: 4000,
+      image: 'assets/img/room-1.jpg',
+      alt: 'Food'
+    },
+    {
+      title: 'Chambre Luxe',
+      description: 'Une chambre spacieuse avec vue sur la mer.',
+      price: 4000,
+      image: 'assets/img/room-2.jpg',
+      alt: 'Spa'
+    },
+    {
+      title: 'Chambre Luxe',
+      description: 'Une chambre spacieuse avec vue sur la mer.',
+      price: 4000,
+      image: 'assets/img/room-1.jpg',
+      alt: 'Food'
+    },
+    {
+      title: 'Chambre Luxe',
+      description: 'Une chambre spacieuse avec vue sur la mer.',
+      price: 4000,
+      image: 'assets/img/room-2.jpg',
+      alt: 'Spa'
+    },
+    {
+      title: 'Chambre Luxe',
+      description: 'Une chambre spacieuse avec vue sur la mer.',
+      price: 4000,
+      image: 'assets/img/room-1.jpg',
+      alt: 'Food'
+    },
+    {
+      title: 'Chambre Luxe',
+      description: 'Une chambre spacieuse avec vue sur la mer.',
+      price: 4000,
+      image: 'assets/img/room-2.jpg',
+      alt: 'Spa'
+    },
+    {
+      title: 'Chambre Luxe',
+      description: 'Une chambre spacieuse avec vue sur la mer.',
+      price: 4000,
+      image: 'assets/img/room-1.jpg',
+      alt: 'Food'
+    },
+    {
+      title: 'Chambre Luxe',
+      description: 'Une chambre spacieuse avec vue sur la mer.',
+      price: 4000,
+      image: 'assets/img/room-2.jpg',
+      alt: 'Spa'
+    },
+  ];
   componentList = RoutingPage
 
   setOpen(isOpen: boolean, itemModal: any) {
