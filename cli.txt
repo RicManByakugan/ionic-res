@@ -21,3 +21,22 @@ src/global.scss
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 ************************************************************
+
+/resources
+
+
+npm install -g cordova-res
+
+cordova-res ios --skip-config --copy
+cordova-res android --skip-config --copy
+
+--------------------------------------------------------------
+npm install @capacitor/assets
+--------------------------------------------------------------
+npx capacitor-assets generate --icon resources/icon.png --splash resources/splash.png
+--------------------------------------------------------------
+npx cap sync
+npx cap copy
+npx cap open android   # pour ouvrir Android Studio
+npx cap open ios       # pour ouvrir Xcode
+--------------------------------------------------------------
