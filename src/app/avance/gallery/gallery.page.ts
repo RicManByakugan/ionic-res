@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
 import { Filesystem, Directory } from '@capacitor/filesystem';
+import { Capacitor } from '@capacitor/core';
 
 @Component({
   selector: 'app-gallery',
@@ -20,11 +21,18 @@ export class GalleryPage {
       quality: 90
     });
 
-    // Ajoutez la photo à la liste des photos
     this.photos.unshift(photo);
 
-    // Sauvegardez la photo dans le stockage de l'appareil
-    this.savePhoto(photo);
+    // Demander la permission pour écrire dans le système de fichiers
+    if (Capacitor.isNativePlatform()) {
+      const permissions = await Filesystem.requestPermissions();
+      if (permissions.publicStorage === 'granted') {
+        this.savePhoto(photo);
+        console.log("Ok");
+      } else {
+        console.error('Permission non accordée pour accéder au système de fichiers');
+      }
+    }
   }
 
   async savePhoto(photo: Photo) {
@@ -33,15 +41,19 @@ export class GalleryPage {
     const blob = await response.blob();
     const base64Data = await this.convertBlobToBase64(blob) as string;
 
-    // Sauvegarder l'image dans le système de fichiers
     const fileName = new Date().getTime() + '.jpeg';
-    await Filesystem.writeFile({
-      path: fileName,
-      data: base64Data,
-      directory: Directory.Data
-    });
 
-    console.log('Photo sauvegardée :', fileName);
+    try {
+      const result = await Filesystem.writeFile({
+        path: fileName,
+        data: base64Data,
+        directory: Directory.Documents // Vous pouvez aussi essayer Directory.Data
+      });
+
+      console.log('Fichier sauvegardé avec succès:', result);
+    } catch (error) {
+      console.error('Erreur lors de la sauvegarde de la photo:', error);
+    }
   }
 
   convertBlobToBase64 = (blob: Blob) => new Promise((resolve, reject) => {
@@ -52,6 +64,5 @@ export class GalleryPage {
     };
     reader.readAsDataURL(blob);
   });
-
 
 }
